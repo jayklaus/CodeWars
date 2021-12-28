@@ -41,5 +41,5 @@ bool comp(List<int> a1, List<int> a2) {
     }
   }
 
-  return count != a1.length ? false : true;
+  return count == a1.length;
 }
