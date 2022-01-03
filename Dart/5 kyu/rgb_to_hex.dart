@@ -11,17 +11,7 @@ rgb(0,0,0) # returns 000000
 rgb(148, 0, 211) # returns 9400D3
 */
 
-String rgb(int r, int g, int b) {
-  String fixer(x) {
-    if (x > 255) {
-      return 'FF';
-    }
-    if (x < 0) {
-      return '00';
-    }
-    return (x > 15 ? x.toRadixString(16) : '0' + x.toRadixString(16))
-        .toUpperCase();
-  }
-
-  return fixer(r) + fixer(g) + fixer(b);
-}
+String rgb(r,g,b) => [r, g, b]
+    .map((x) => x.clamp(0, 255).toInt().toRadixString(16).padLeft(2, '0'))
+    .join()
+    .toUpperCase();
